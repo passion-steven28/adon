@@ -1,28 +1,18 @@
-import BannerSection from './components/sections/banner-section'
-import HeroSection from './components/sections/hero-section'
-import ProductsSection from './components/sections/products-section'
-import ServiceSection from './components/sections/service-section'
-import NavBar from './components/shared/nav-bar'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/home'
+import NotFound from './pages/NotFound'
+import Layout from './components/layout/Layout'
+import Shop from './pages/shop'
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <main className="grid grid-cols-12 gap-4 min-h-screen">
-        <div className='col-start-1 col-end-13'>
-          <HeroSection />
-        </div>
-        <div className='col-start-3 col-end-11'>
-          <ServiceSection />
-        </div>
-        <div className='col-start-1 col-end-13'>
-          <BannerSection />
-        </div>
-        <div className='col-start-3 col-end-11'>
-          <ProductsSection />
-        </div>
-      </main>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   )
 }
 
