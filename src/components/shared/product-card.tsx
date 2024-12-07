@@ -1,5 +1,4 @@
 import { Card } from "../ui/card"
-import { GlareCard } from "../ui/glare-card"
 
 type Props = {
     id: number
