@@ -6,7 +6,7 @@ type Props = {
     name: string
     category: string
     price: number
-    discount: number
+    discount?: number
     rating?: number
 }
 
