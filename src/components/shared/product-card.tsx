@@ -1,3 +1,4 @@
+import { Button } from "../ui/button"
 import { Card } from "../ui/card"
 
 type Props = {
@@ -30,9 +31,15 @@ const ProductCard = ({ image, name, category, price, discount }: Props) => {
                 <p className="text-left text-sm">
                     {category}
                 </p>
-                <h3>
-                    <span className="text-primary font-bold">Tsh{price}</span>
-                </h3>
+                <div className="flex flex-row items-center justify-between">
+                    <h3>
+                        <span className="text-primary font-bold">Tsh{price}</span>
+                    </h3>
+
+                    <Button>
+                        Buy Now
+                    </Button>
+                </div>
             </div>
         </Card>
     )

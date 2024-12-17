@@ -3,7 +3,7 @@ import logo from '@/assets/logo.svg'
 const navItems = [
     {
         label: 'Home',
-        href: '#'
+        href: '/'
     },
     {
         label: 'Shop',
@@ -23,7 +23,9 @@ const NavBar = () => {
     return (
         <div className="flex flex-row justify-between items-center py-2 px-4 bg-primary sticky top-0 z-50">
             <div>
-                <img src={logo} alt="logo" />
+                <a href="/">
+                    <img src={logo} alt="logo" />
+                </a>
             </div>
 
             <nav className="flex flex-row justify-between items-center gap-4">
