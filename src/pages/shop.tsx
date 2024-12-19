@@ -92,6 +92,7 @@ const Shop = () => {
                             image={product.image}
                             name={product.name}
                             category={product.category}
+                            description={product.description}
                             price={product.price}
                             discount={product.discount}
                         />
