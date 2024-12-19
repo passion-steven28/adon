@@ -1,5 +1,18 @@
 import { Button } from "../ui/button"
 import { Card } from "../ui/card"
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { Label } from "../ui/label"
+import { Input } from "../ui/input"
+
 
 type Props = {
     id: number
@@ -7,11 +20,12 @@ type Props = {
     name: string
     category: string
     price: number
+    description: string
     discount?: number
     rating?: number
 }
 
-const ProductCard = ({ image, name, category, price, discount }: Props) => {
+const ProductCard = ({ image, name, description, category, price, discount }: Props) => {
     return (
         <Card className="bg-accent overflow-hidden">
             <div className="relative overflow-hidden w-full h-[15rem]">
@@ -35,10 +49,53 @@ const ProductCard = ({ image, name, category, price, discount }: Props) => {
                     <h3>
                         <span className="text-primary font-bold">Tsh{price}</span>
                     </h3>
-
-                    <Button>
-                        Buy Now
-                    </Button>
+                    <Sheet>
+                        <SheetTrigger>
+                            <Button>
+                                Buy Now
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent className="bg-accent">
+                            <div className="relative w-full mt-10">
+                                <img
+                                    src={image}
+                                    alt={name}
+                                    className="w-full h-full object-cover rounded-xl"
+                                />
+                            </div>
+                            <SheetHeader>
+                                <SheetTitle>{name}</SheetTitle>
+                                <SheetDescription>
+                                    {description}
+                                </SheetDescription>
+                            </SheetHeader>
+                            <SheetFooter>
+                                <div className="grid gap-4 py-4">
+                                    <div className="grid grid-cols-4 items-center gap-4">
+                                        <Label htmlFor="name" className="text-right">
+                                            Full name
+                                        </Label>
+                                        <Input id="name" className="col-span-3" />
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-4">
+                                        <Label htmlFor="phone" className="text-right">
+                                            Phone NO
+                                        </Label>
+                                        <Input id="phone" type="tel" className="col-span-3" />
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-4">
+                                        <Label htmlFor="username" className="text-right">
+                                            address
+                                        </Label>
+                                        <Input id="address" type="text" className="col-span-3" />
+                                    </div>
+                                    <SheetClose asChild>
+                                        <Button>Save changes</Button>
+                                    </SheetClose>
+                                </div>
+                            </SheetFooter>
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </div>
         </Card>

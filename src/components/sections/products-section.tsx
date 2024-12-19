@@ -7,6 +7,7 @@ const productData = [
         image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         name: "Product Name",
         category: "Laptop",
+        description: "this is a descriptions",
         price: 1000,
         discount: 10,
         rating: 4.5,
@@ -16,6 +17,7 @@ const productData = [
         image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         name: "Product Name",
         category: "Laptop",
+        description: "this is a descriptions",
         price: 1000,
         discount: 10,
         rating: 4.5,
@@ -25,6 +27,7 @@ const productData = [
         image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         name: "Product Name",
         category: "Laptop",
+        description: "this is a descriptions",
         price: 1000,
         discount: 10,
         rating: 4.5,
@@ -34,6 +37,7 @@ const productData = [
         image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         name: "Product Name",
         category: "Laptop",
+        description: "this is a descriptions",
         price: 1000,
         discount: 10,
         rating: 4.5,
@@ -43,6 +47,7 @@ const productData = [
         image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         name: "Product Name",
         category: "Laptop",
+        description: "this is a descriptions",
         price: 1000,
         discount: 10,
         rating: 4.5,
@@ -61,6 +66,7 @@ const ProductsSection = () => {
                             id={product.id}
                             image={product.image}
                             name={product.name}
+                            description={product.description}
                             category={product.category}
                             price={product.price}
                             discount={product.discount}
