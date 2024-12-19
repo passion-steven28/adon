@@ -5,7 +5,7 @@ type Props = {
 
 const ProductLayouts = ({ title, chidren }: Props) => {
     return (
-        <section>
+        <section className="flex flex-col gap-4">
             <div>
                 <h1 className="text-left text-4xl font-bold">
                     {title}

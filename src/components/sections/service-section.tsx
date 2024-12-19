@@ -1,3 +1,4 @@
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
 import { GlareCard } from "../ui/glare-card"
 
 const serviceData = [
@@ -31,14 +32,33 @@ const serviceData = [
 
 const ServiceSection = () => {
     return (
-        <section className="flex flex-col justify-center gap-4 h-screen my-10">
+        <section className="flex flex-col justify-center gap-4 md:min-h-screen my-10">
             <div className="text-center">
                 <h1 className="text-4xl font-bold">
                     our services
                 </h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, voluptatibus.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <Carousel>
+                    <CarouselContent>
+                        {serviceData.map((service) => (
+                            <CarouselItem>
+                                <GlareCard className="bg-accent">
+                                    <img
+                                        src={service.image}
+                                        alt={service.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </GlareCard>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselNext />
+                    <CarouselPrevious />
+                </Carousel>
+            </div>
+            {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {serviceData.map((service) => (
                     <GlareCard className="bg-accent">
                         <img
@@ -48,7 +68,7 @@ const ServiceSection = () => {
                         />
                     </GlareCard>
                 ))}
-            </div>
+            </div> */}
         </section>
     )
 }

@@ -6,8 +6,8 @@ import { Badge } from "../ui/badge"
 const HeroSection = () => {
     return (
         <section className="flex flex-col justify-end gap-4 h-screen">
-            <div className="flex items-center justify-evenly size-full space-x-10 px-10">
-                <div className="flex flex-row items-center justify-center gap-4 w-[50rem]">
+            <div className="flex flex-col items-center justify-evenly size-full space-x-10 px-10">
+                <div className="flex flex-row items-center justify-center gap-4 w-[30rem]">
                     <img
                         src={heroImage}
                         alt="hero-image"
@@ -34,7 +34,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex items-center justify-center gap-4 bg-accent py-4 px-10">
-                <ul className="flex flex-col md:flex-row gap-4 md:gap-0">
+                <ul className="flex flex-row flex-wrap gap-4 md:gap-0">
                     <li className="text-sm text-muted-foreground flex flex-col items-center justify-center">
                         <Ship className="w-5 h-5" />
                         <div className="ml-2 flex flex-col items-center justify-center">
