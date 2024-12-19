@@ -10,10 +10,6 @@ const navItems = [
         href: '/shop'
     },
     {
-        label: 'Services',
-        href: '#'
-    },
-    {
         label: 'About',
         href: '#'
     }

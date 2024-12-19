@@ -40,10 +40,21 @@ const ServiceSection = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, voluptatibus.</p>
             </div>
             <div>
-                <Carousel>
-                    <CarouselContent>
+                <Carousel
+                    opts={{
+                        align: "center",
+                        loop: true,
+                    }}
+                    // className="w-full"
+                >
+                    <CarouselContent
+                    className="-ml-1"
+                    >
                         {serviceData.map((service) => (
-                            <CarouselItem>
+                            <CarouselItem
+                                key={service.id}
+                                className="md:basis-1/2 lg:basis-1/3 pl-1"
+                            >
                                 <GlareCard className="bg-accent">
                                     <img
                                         src={service.image}

@@ -1,6 +1,5 @@
 import { Button } from "../ui/button"
 import heroImage from "../../../public/images/hero.jpg"
-import { Ship } from "lucide-react"
 import { Badge } from "../ui/badge"
 
 const HeroSection = () => {
@@ -33,38 +32,38 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-center gap-4 bg-accent py-4 px-10">
+            {/* <div className="flex items-center justify-center gap-4 bg-accent text-secondary py-4 px-10">
                 <ul className="flex flex-row flex-wrap gap-4 md:gap-0">
-                    <li className="text-sm text-muted-foreground flex flex-col items-center justify-center">
+                    <li className="text-sm text-secondary flex flex-col items-center justify-center">
                         <Ship className="w-5 h-5" />
                         <div className="ml-2 flex flex-col items-center justify-center">
                             <span className="ml-2">Free Shipping</span>
-                            <span className="ml-2 text-xs text-muted-foreground">(within the DAR ES SALAAM)</span>
+                            <span className="ml-2 text-xs text-secondary">(within the DAR ES SALAAM)</span>
                         </div>
                     </li>
-                    <li className="text-sm text-muted-foreground flex flex-col items-center justify-center">
+                    <li className="text-sm text-secondary flex flex-col items-center justify-center">
                         <Ship className="w-5 h-5" />
                         <div className="ml-2 flex flex-col items-center justify-center">
                             <span className="ml-2">Free Shipping</span>
-                            <span className="ml-2 text-xs text-muted-foreground">(within the DAR ES SALAAM)</span>
+                            <span className="ml-2 text-xs text-secondary">(within the DAR ES SALAAM)</span>
                         </div>
                     </li>
-                    <li className="text-sm text-muted-foreground flex flex-col items-center justify-center">
+                    <li className="text-sm text-secondary flex flex-col items-center justify-center">
                         <Ship className="w-5 h-5" />
                         <div className="ml-2 flex flex-col items-center justify-center">
                             <span className="ml-2">Free Shipping</span>
-                            <span className="ml-2 text-xs text-muted-foreground">(within the DAR ES SALAAM)</span>
+                            <span className="ml-2 text-xs text-secondary">(within the DAR ES SALAAM)</span>
                         </div>
                     </li>
-                    <li className="text-sm text-muted-foreground flex flex-col items-center justify-center">
+                    <li className="text-sm text-secondary flex flex-col items-center justify-center">
                         <Ship className="w-5 h-5" />
                         <div className="ml-2 flex flex-col items-center justify-center">
                             <span className="ml-2">Free Shipping</span>
-                            <span className="ml-2 text-xs text-muted-foreground">(within the DAR ES SALAAM)</span>
+                            <span className="ml-2 text-xs text-secondary">(within the DAR ES SALAAM)</span>
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </section>
     )
 }
