@@ -1,80 +1,61 @@
 import ProductCard from "@/components/shared/product-card"
+import createClient from "@/lib/client";
+import { urlFor } from "@/lib/urlFor";
+import { useEffect, useState } from "react";
 
-const productData = [
-    {
-        id: 1,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        name: "Product Name",
-        category: "Laptop",
-        description: "this is a descriptions",
-        price: 1000,
-        discount: 10,
-        rating: 4.5,
-    },
-]
+export interface SanityProduct {
+    brand: {
+        _ref: string;
+        _type: string;
+    };
+    features: string[];
+    images: Array<{
+        _key: string;
+        asset: {
+            _ref: string;
+        };
+    }>;
+    name: string;
+    price: number;
+    productType: string;
+    slug: {
+        current: string;
+        _type: string;
+    };
+    specifications: {
+        display: string;
+        graphics: string;
+        operatingSystem: string;
+        processor: string;
+        ram: string;
+        storage: string;
+    };
+    stockQuantity: number;
+}
 
 
 const Shop = () => {
+    const [products, setProducts] = useState<SanityProduct[]>([])
+
+    useEffect(() => {
+        createClient.fetch(`
+                *[_type == "product"]{
+                name,
+                slug,
+                brand,
+                productType,
+                stockQuantity,
+                specifications,
+                images,
+                features,
+                price,
+                }
+            `).then((data: SanityProduct[]) => {
+            setProducts(data)
+        })
+            .catch(console.error)
+    }, [])
+
     return (
         <main className="grid grid-cols-12 gap-4 min-h-screen">
             <div className='col-start-1 col-end-13 bg-accent h-[20vh] flex flex-col justify-center items-center'>
@@ -85,16 +66,16 @@ const Shop = () => {
 
             <section className='col-start-3 col-end-11'>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {productData.map((product) => (
+                    {products?.map((product: SanityProduct) => (
                         <ProductCard
-                            key={product.id}
-                            id={product.id}
-                            image={product.image}
+                            key={product.slug.current}
+                            id={product.slug.current}
+                            image={urlFor(product.images[0]).url()}
                             name={product.name}
-                            category={product.category}
-                            description={product.description}
+                            descriptions={product.specifications}
+                            category={product.productType}
                             price={product.price}
-                            discount={product.discount}
+                            discount={product.features.includes('discount') ? 10 : 0}
                         />
                     ))}
                 </div>
