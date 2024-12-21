@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react"
 import ProductLayouts from "../layout/product-layouts"
 import ProductCard from "../shared/product-card"
+import createClient from "../../lib/client";
 
 const productData = [
     {
@@ -55,11 +57,34 @@ const productData = [
 ]
 
 const ProductsSection = () => {
+    const [products, setProducts] = useState<unknown>(null)
+
+    useEffect(() => {
+        createClient.fetch(`
+            *[_type == "product"]{
+            name,
+            slug,
+            brand,
+            productType,
+            stockQuantity,
+            specifications,
+            images,
+            features,
+            price,
+            }
+        `).then((data: unknown) => {
+            setProducts(data)
+        })
+        .catch(console.error)
+    }, [])
+
+    console.log(products)
+
     return (
         <div>
             <ProductLayouts
                 title="New Arrivals"
-                chidren={
+                children={
                     productData.map((product) => (
                         <ProductCard
                             key={product.id}

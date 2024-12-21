@@ -1,9 +1,9 @@
 type Props = {
     title: string
-    chidren: React.ReactNode
+    children: React.ReactNode
 }
 
-const ProductLayouts = ({ title, chidren }: Props) => {
+const ProductLayouts = ({ title, children }: Props) => {
     return (
         <section className="flex flex-col gap-4">
             <div>
@@ -12,7 +12,7 @@ const ProductLayouts = ({ title, chidren }: Props) => {
                 </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {chidren}
+                {children}
             </div>
         </section>
     )
