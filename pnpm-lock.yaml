@@ -41,6 +41,9 @@ importers:
       '@sanity/client':
         specifier: ^6.24.1
         version: 6.24.1
+      '@sanity/image-url':
+        specifier: ^1.1.0
+        version: 1.1.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -967,6 +970,10 @@ packages:
 
   '@sanity/eventsource@5.0.2':
     resolution: {integrity: sha512-/B9PMkUvAlUrpRq0y+NzXgRv5lYCLxZNsBJD2WXVnqZYOfByL9oQBV7KiTaARuObp5hcQYuPfOAVjgXe3hrixA==}
+
+  '@sanity/image-url@1.1.0':
+    resolution: {integrity: sha512-JHumVRxzzaZAJyOimntdukA9TjjzsJiaiq/uUBdTknMLCNvtM6KQ5OCp6W5fIdY78uyFxtQjz+MPXwK8WBIxWg==}
+    engines: {node: '>=10.0.0'}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2871,6 +2878,8 @@ snapshots:
       '@types/eventsource': 1.1.15
       event-source-polyfill: 1.0.31
       eventsource: 2.0.2
+
+  '@sanity/image-url@1.1.0': {}
 
   '@types/babel__core@7.20.5':
     dependencies:

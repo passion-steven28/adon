@@ -15,17 +15,24 @@ import { Input } from "../ui/input"
 
 
 type Props = {
-    id: number
+    id: string
     image: string
     name: string
     category: string
     price: number
-    description: string
+    descriptions: {
+        display: string;
+        graphics: string;
+        operatingSystem: string;
+        processor: string;
+        ram: string;
+        storage: string;
+    }
     discount?: number
     rating?: number
 }
 
-const ProductCard = ({ image, name, description, category, price, discount }: Props) => {
+const ProductCard = ({ image, name, descriptions, category, price, discount }: Props) => {
     return (
         <Card className="bg-accent overflow-hidden">
             <div className="relative overflow-hidden w-full h-[15rem]">
@@ -66,7 +73,9 @@ const ProductCard = ({ image, name, description, category, price, discount }: Pr
                             <SheetHeader>
                                 <SheetTitle>{name}</SheetTitle>
                                 <SheetDescription>
-                                    {description}
+                                    {Object.values(descriptions).map((description: string, index: number) => (
+                                        <p key={index}>{description}</p>
+                                    ))}
                                 </SheetDescription>
                             </SheetHeader>
                             <SheetFooter>
