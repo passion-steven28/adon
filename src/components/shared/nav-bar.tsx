@@ -1,4 +1,4 @@
-import logo from '@/assets/logo.svg'
+import logo from '@/assets/logo.png'
 
 const navItems = [
     {
@@ -18,7 +18,7 @@ const navItems = [
 const NavBar = () => {
     return (
         <div className="flex flex-row justify-between items-center py-2 px-4 bg-primary sticky top-0 z-50">
-            <div>
+            <div className='relative w-12 h-auto'>
                 <a href="/">
                     <img src={logo} alt="logo" />
                 </a>

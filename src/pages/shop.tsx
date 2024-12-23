@@ -10,13 +10,14 @@ export interface SanityProduct {
     };
     features: string[];
     images: Array<{
-        _key: string;
+        _key: string; 
         asset: {
             _ref: string;
         };
     }>;
     name: string;
     price: number;
+    description: import('@portabletext/react').PortableTextBlock[]
     productType: string;
     slug: {
         current: string;
@@ -49,6 +50,7 @@ const Shop = () => {
                 images,
                 features,
                 price,
+                description,
                 }
             `).then((data: SanityProduct[]) => {
             setProducts(data)
@@ -72,6 +74,7 @@ const Shop = () => {
                             id={product.slug.current}
                             image={urlFor(product.images[0]).url()}
                             name={product.name}
+                            description={product.description}
                             descriptions={product.specifications}
                             category={product.productType}
                             price={product.price}

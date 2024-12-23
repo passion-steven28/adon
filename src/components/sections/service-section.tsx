@@ -45,7 +45,7 @@ const ServiceSection = () => {
                         align: "center",
                         loop: true,
                     }}
-                    // className="w-full"
+                    className="w-full py-4"
                 >
                     <CarouselContent
                     className="-ml-1"
@@ -69,17 +69,6 @@ const ServiceSection = () => {
                     <CarouselPrevious />
                 </Carousel>
             </div>
-            {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {serviceData.map((service) => (
-                    <GlareCard className="bg-accent">
-                        <img
-                            src={service.image}
-                            alt={service.name}
-                            className="w-full h-full object-cover"
-                        />
-                    </GlareCard>
-                ))}
-            </div> */}
         </section>
     )
 }
